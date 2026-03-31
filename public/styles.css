@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
+:root {
+    --main-header: #FFF2F8;
+    --footer: #0571D3;
+    --mens-main:#6daadf;
+    --border: #05559E;
+    --footer-txt: #FFFFFF;
+    --home: #FFF3B1;
+    --womens: #FFC3E0;
+    --mens: #E3F2FF;
+    --btn-background: rgba(5, 113, 211, 0.8);
+    --text-block: rgba(255, 255, 255, 0.9);
+    --shadow:gray;
+    --shop-txt: #093F70;
+    --impact: #FFCED4;
+    --overlay: rgba(9,63,112,0.4);
+}
+
 body {
     background: pink;
+}
+
+/* typography */
+body {
+  font-family: "Galindo", sans-serif;
+  font-weight: 200;
 }
