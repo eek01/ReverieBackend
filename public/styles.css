@@ -24,4 +24,5 @@ body {
 body {
   font-family: "Galindo", sans-serif;
   font-weight: 200;
+  color:var(--border);
 }
