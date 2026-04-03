@@ -306,7 +306,7 @@ let quickShop = [
   [
     {
        "_id": 1,
-      "img_name":"reverie11_cropped.jpg",
+      "img_name":"reverie11_cropped.png",
       "title":"Chunky Knit Sweater",
       "price":60,
       "features":["Turtle Neck", "Over Sized Fit"],
@@ -316,7 +316,7 @@ let quickShop = [
     },
     {
       "_id": 2,
-        "img_name":"reverie15_cropped.jpg",
+        "img_name":"reverie15_cropped.png",
         "title":"White Heeled Sandals",
         "price":49,
         "features":["Adjustable Ankle Strap"],
@@ -326,7 +326,7 @@ let quickShop = [
     },
     {
       "_id": 3,
-        "img_name":"reverie16_cropped.jpg",
+        "img_name":"reverie16_cropped.png",
         "title":"Navy Windbreaker",
         "price":55,
         "features":["Quarter Zip","Quarter Buttons"],
