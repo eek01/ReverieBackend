@@ -305,7 +305,7 @@ let decor = [
 let quickShop = [
   {
     "_id": 1,
-    "img_name":"womens6.jpg",
+    "img_name":"reverie11_cropped.jpg",
     "title":"Chunky Knit Sweater",
     "price":60,
     "features":["Turtle Neck", "Over Sized Fit"],
@@ -315,7 +315,7 @@ let quickShop = [
   },
   {
         "_id": 2,
-        "img_name":"womens2.jpg",
+        "img_name":"reverie15_cropped.jpg",
         "title":"White Heeled Sandals",
         "price":49,
         "features":["Adjustable Ankle Strap"],
@@ -325,7 +325,7 @@ let quickShop = [
   },
   {
         "_id": 3,
-        "img_name":"mens1.jpg",
+        "img_name":"reverie16_cropped.jpg",
         "title":"Navy Windbreaker",
         "price":55,
         "features":["Quarter Zip","Quarter Buttons"],
@@ -335,7 +335,7 @@ let quickShop = [
   },
   {
         "_id": 4,
-        "img_name":"mens3.jpg",
+        "img_name":"mens3_cropped.jpg",
         "title":"Stone-Wash Jeans",
         "price":79,
         "features":["Straight leg"],
@@ -345,7 +345,7 @@ let quickShop = [
   },
   {
         "_id": 5,
-        "img_name":"womens1.jpg",
+        "img_name":"reverie2_cropped.jpg",
         "title":"White Sneakers",
         "price":99,
         "features":["Platform Sole", "Memory Foam Insole"],
@@ -355,7 +355,7 @@ let quickShop = [
   },
   {
         "_id": 6,
-        "img_name":"reverieImgButtonDown.jpg",
+        "img_name":"reverie5_cropped.jpg",
         "title":"Brown Button-down",
         "price": 28,
         "features":["Light Brown Embroidered Detail", "Black Buttons"],
