@@ -144,17 +144,165 @@ let womens = [
 ]
 
 let mens = [
-  {
-
-  }
+        {
+        "_id": 9,
+        "img_name":"mens1.jpg",
+        "title":"Navy Windbreaker",
+        "price":55,
+        "features":["Quarter Zip","Quarter Buttons"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["S","6'"],
+        "link":"#"
+    },
+    {
+        "_id": 8,
+        "img_name":"mens2.jpg",
+        "title":"White T-Shirt",
+        "price":15,
+        "features":["Turtle Neck", "Over Sized Fit"],
+        "care":["Cotton", "Machine wash"],
+        "size_fit":["S","5'8"],
+        "link":"#"
+    },
+    {
+        "_id": 7,
+        "img_name":"mens3.jpg",
+        "title":"Stone-Wash Jeans",
+        "price":79,
+        "features":["Straight leg"],
+        "care":["Demin", "Machine wash"],
+        "size_fit":["M","5'10"],
+        "link":"#"
+    },
+    {
+        "_id": 6,
+        "img_name":"mens4.jpg",
+        "title":"Denim Jacket",
+        "price":58,
+        "features":["Button-Down"],
+        "care":["Denim", "Machine wash"],
+        "size_fit":["M","5'9"],
+        "link":"#"
+    },
+    {
+        "_id": 5,
+        "img_name":"mens5.jpg",
+        "title":"Short Sleeved Button Down",
+        "price":28,
+        "features":["Chest Pockets", "Button Down"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["M","5'10"],
+        "link":"#"
+    },
+    {
+        "_id": 4,
+        "img_name":"mens6.jpg",
+        "title":"Gray Striped Blazer Jacket",
+        "price":39,
+        "features":["Decorative Front Buttons", "Front Pocket"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["M","5'7"],
+        "link":"#"
+    },
+    {
+        "_id": 3,
+        "img_name":"mens7.jpg",
+        "title":"Puffer Jacket",
+        "price":60,
+        "features":["Faux Fur Collar", "Zip-up Closure"],
+        "care":["Nylon", "Machine wash"],
+        "size_fit":["M", "5'9"],
+        "link":"#"
+    },
+    {
+        "_id":2,
+        "img_name":"mens8.jpg",
+        "title":"Burnt Orange T-Shirt",
+        "price": 20,
+        "features":["Over Sized Fit", "Raw Hem"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["S","5'7"],
+        "link":"#"
+    },
+    {
+        "_id": 1,
+        "img_name":"mens9.jpg",
+        "title":"Sweater",
+        "price": 39,
+        "features":["V-Neck collar"],
+        "care":["Cashmere", "Hand-wash only"],
+        "size_fit":["M", "5'9"],
+        "link":"/shop"
+    }
 ]
 
 let decor = [
-  {
-
-  }
+        {
+        "_id": 9,
+        "img_name":"home9.jpg",
+        "title":"Coffee Table Assortment",
+        "price":79,
+        "features":["Three Piece"]
+    },
+    {
+        "_id": 8,
+        "img_name":"home8.jpg",
+        "title":"Wired Light",
+        "price":17,
+        "features":["Wall Plug In", "Hanger"]
+    },
+    {
+        "_id": 7,
+        "img_name":"home7.jpg",
+        "title":"Woven Table Map",
+        "price":13,
+        "features":["Multicolored", "24in. Diameter"]
+    },
+    {
+        "_id": 6,
+        "img_name":"home6.jpg",
+        "title":"Square Wall Shelves",
+        "price":40,
+        "features":["Four Piece"]
+    },
+    {
+        "_id": 5,
+        "img_name":"home5.jpg",
+        "title":"Woven Chevron Hamper",
+        "price":24,
+        "features":["Side Handles"]
+    },
+    {
+        "_id": 4,
+        "img_name":"home4.jpg",
+        "title":"Decorative Mosaic tea Kettle",
+        "price":29,
+        "features":["Mosaic Inpired Pattern", "Removeable Lid"]
+    },
+    {
+        "_id": 3,
+        "img_name":"home3.jpg",
+        "title":"Wide Pot",
+        "price":16,
+        "features":["Saucer Dish Included", "10in. Long"]
+    },
+    {
+        "_id":2,
+        "img_name":"home2.jpg",
+        "title":"Textured Pot",
+        "price": 35,
+        "features":["Leaf-inspired texture", "25in. Diameter"]
+    },
+    {
+        "_id": 1,
+        "img_name":"home1.jpg",
+        "title":"Ceramic Pitcher Vase",
+        "price": 28,
+        "features":["Floral Painting"]
+    }
 ]
 
+// womens
 app.get("/api/womens", (req,res)=>{
   res.send(womens);
 });
@@ -164,6 +312,30 @@ app.get("/api/womens/:id", (req,res)=>{
   // === means same in type and value
   const women = womens.find((item)=>item._id===parseInt(req.params.id));
   res.send(women);
+});
+
+// mens
+app.get("/api/mens", (req,res)=>{
+  res.send(mens);
+});
+
+app.get("/api/mens/:id", (req,res)=>{
+  //if we have a one line arrow function, we dont need curly braces
+  // === means same in type and value
+  const men = mens.find((item)=>item._id===parseInt(req.params.id));
+  res.send(men);
+});
+
+// decor
+app.get("/api/decor", (req,res)=>{
+  res.send(decor);
+});
+
+app.get("/api/decor/:id", (req,res)=>{
+  //if we have a one line arrow function, we dont need curly braces
+  // === means same in type and value
+  const item = decor.find((item)=>item._id===parseInt(req.params.id));
+  res.send(item);
 });
 
 //listen for incoming requests
