@@ -303,18 +303,19 @@ let decor = [
 ]
 
 let quickShop = [
-  {
-    "_id": 1,
-    "img_name":"reverie11_cropped.jpg",
-    "title":"Chunky Knit Sweater",
-    "price":60,
-    "features":["Turtle Neck", "Over Sized Fit"],
-    "care":["Rayon, Cotton", "Machine wash"],
-    "size_fit":["S","5'4"],
-    "link":"#"
-  },
-  {
-        "_id": 2,
+  [
+    {
+       "_id": 1,
+      "img_name":"reverie11_cropped.jpg",
+      "title":"Chunky Knit Sweater",
+      "price":60,
+      "features":["Turtle Neck", "Over Sized Fit"],
+      "care":["Rayon, Cotton", "Machine wash"],
+      "size_fit":["S","5'4"],
+      "link":"#"
+    },
+    {
+      "_id": 2,
         "img_name":"reverie15_cropped.jpg",
         "title":"White Heeled Sandals",
         "price":49,
@@ -322,9 +323,9 @@ let quickShop = [
         "care":["Rayon, Cotton", "Machine wash"],
         "size_fit":["9","5'7"],
         "link":"#"
-  },
-  {
-        "_id": 3,
+    },
+    {
+      "_id": 3,
         "img_name":"reverie16_cropped.jpg",
         "title":"Navy Windbreaker",
         "price":55,
@@ -332,9 +333,11 @@ let quickShop = [
         "care":["Rayon, Cotton", "Machine wash"],
         "size_fit":["S","6'"],
         "link":"#"
-  },
-  {
-        "_id": 4,
+    }
+  ],
+  [
+    {
+      "_id": 4,
         "img_name":"mens3_cropped.jpg",
         "title":"Stone-Wash Jeans",
         "price":79,
@@ -342,8 +345,8 @@ let quickShop = [
         "care":["Demin", "Machine wash"],
         "size_fit":["M","5'10"],
         "link":"#"
-  },
-  {
+    },
+    {
         "_id": 5,
         "img_name":"reverie2_cropped.jpg",
         "title":"White Sneakers",
@@ -352,9 +355,9 @@ let quickShop = [
         "care":["Rayon, Cotton", "Machine wash"],
         "size_fit":["7 1/2", "5'9"],
         "link":"#"
-  },
-  {
-        "_id": 6,
+    },
+    {
+       "_id": 6,
         "img_name":"reverie5_cropped.jpg",
         "title":"Brown Button-down",
         "price": 28,
@@ -362,7 +365,8 @@ let quickShop = [
         "care":["Rayon, Cotton", "Machine wash"],
         "size_fit":["S", "5'9"],
         "link":"/shop"
-  }
+    }
+  ]
 ]
 
 // womens
