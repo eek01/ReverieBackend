@@ -145,7 +145,7 @@ let womens = [
 
 let mens = [
         {
-        "_id": 9,
+        "_id": 18,
         "img_name":"mens1.jpg",
         "title":"Navy Windbreaker",
         "price":55,
@@ -155,7 +155,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id": 8,
+        "_id": 17,
         "img_name":"mens2.jpg",
         "title":"White T-Shirt",
         "price":15,
@@ -165,7 +165,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id": 7,
+        "_id": 16,
         "img_name":"mens3.jpg",
         "title":"Stone-Wash Jeans",
         "price":79,
@@ -175,7 +175,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id": 6,
+        "_id": 15,
         "img_name":"mens4.jpg",
         "title":"Denim Jacket",
         "price":58,
@@ -185,7 +185,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id": 5,
+        "_id": 14,
         "img_name":"mens5.jpg",
         "title":"Short Sleeved Button Down",
         "price":28,
@@ -195,7 +195,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id": 4,
+        "_id": 13,
         "img_name":"mens6.jpg",
         "title":"Gray Striped Blazer Jacket",
         "price":39,
@@ -205,7 +205,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id": 3,
+        "_id": 12,
         "img_name":"mens7.jpg",
         "title":"Puffer Jacket",
         "price":60,
@@ -215,7 +215,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id":2,
+        "_id":11,
         "img_name":"mens8.jpg",
         "title":"Burnt Orange T-Shirt",
         "price": 20,
@@ -225,7 +225,7 @@ let mens = [
         "link":"#"
     },
     {
-        "_id": 1,
+        "_id": 10,
         "img_name":"mens9.jpg",
         "title":"Sweater",
         "price": 39,
@@ -238,63 +238,63 @@ let mens = [
 
 let decor = [
         {
-        "_id": 9,
+        "_id": 19,
         "img_name":"home9.jpg",
         "title":"Coffee Table Assortment",
         "price":79,
         "features":["Three Piece"]
     },
     {
-        "_id": 8,
+        "_id": 20,
         "img_name":"home8.jpg",
         "title":"Wired Light",
         "price":17,
         "features":["Wall Plug In", "Hanger"]
     },
     {
-        "_id": 7,
+        "_id": 21,
         "img_name":"home7.jpg",
         "title":"Woven Table Map",
         "price":13,
         "features":["Multicolored", "24in. Diameter"]
     },
     {
-        "_id": 6,
+        "_id": 22,
         "img_name":"home6.jpg",
         "title":"Square Wall Shelves",
         "price":40,
         "features":["Four Piece"]
     },
     {
-        "_id": 5,
+        "_id": 23,
         "img_name":"home5.jpg",
         "title":"Woven Chevron Hamper",
         "price":24,
         "features":["Side Handles"]
     },
     {
-        "_id": 4,
+        "_id": 24,
         "img_name":"home4.jpg",
         "title":"Decorative Mosaic tea Kettle",
         "price":29,
         "features":["Mosaic Inpired Pattern", "Removeable Lid"]
     },
     {
-        "_id": 3,
+        "_id": 25,
         "img_name":"home3.jpg",
         "title":"Wide Pot",
         "price":16,
         "features":["Saucer Dish Included", "10in. Long"]
     },
     {
-        "_id":2,
+        "_id":26,
         "img_name":"home2.jpg",
         "title":"Textured Pot",
         "price": 35,
         "features":["Leaf-inspired texture", "25in. Diameter"]
     },
     {
-        "_id": 1,
+        "_id": 27,
         "img_name":"home1.jpg",
         "title":"Ceramic Pitcher Vase",
         "price": 28,
@@ -305,7 +305,7 @@ let decor = [
 let quickShop = [
   [
     {
-       "_id": 1,
+       "_id": 28,
       "img_name":"reverie11_cropped.png",
       "title":"Chunky Knit Sweater",
       "price":60,
@@ -315,7 +315,7 @@ let quickShop = [
       "link":"#"
     },
     {
-      "_id": 2,
+      "_id": 29,
         "img_name":"reverie15_cropped.png",
         "title":"White Heeled Sandals",
         "price":49,
@@ -325,7 +325,7 @@ let quickShop = [
         "link":"#"
     },
     {
-      "_id": 3,
+      "_id": 30,
         "img_name":"reverie16_cropped.png",
         "title":"Navy Windbreaker",
         "price":55,
@@ -337,7 +337,7 @@ let quickShop = [
   ],
   [
     {
-      "_id": 4,
+      "_id": 31,
         "img_name":"mens3_cropped.jpg",
         "title":"Stone-Wash Jeans",
         "price":79,
@@ -347,7 +347,7 @@ let quickShop = [
         "link":"#"
     },
     {
-        "_id": 5,
+        "_id": 32,
         "img_name":"reverie2_cropped.jpg",
         "title":"White Sneakers",
         "price":99,
@@ -357,7 +357,7 @@ let quickShop = [
         "link":"#"
     },
     {
-       "_id": 6,
+       "_id": 33,
         "img_name":"reverie5_cropped.jpg",
         "title":"Brown Button-down",
         "price": 28,
