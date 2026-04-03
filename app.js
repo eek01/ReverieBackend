@@ -302,6 +302,69 @@ let decor = [
     }
 ]
 
+let quickShop = [
+  {
+    "_id": 1,
+    "img_name":"womens6.jpg",
+    "title":"Chunky Knit Sweater",
+    "price":60,
+    "features":["Turtle Neck", "Over Sized Fit"],
+    "care":["Rayon, Cotton", "Machine wash"],
+    "size_fit":["S","5'4"],
+    "link":"#"
+  },
+  {
+        "_id": 2,
+        "img_name":"womens2.jpg",
+        "title":"White Heeled Sandals",
+        "price":49,
+        "features":["Adjustable Ankle Strap"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["9","5'7"],
+        "link":"#"
+  },
+  {
+        "_id": 3,
+        "img_name":"mens1.jpg",
+        "title":"Navy Windbreaker",
+        "price":55,
+        "features":["Quarter Zip","Quarter Buttons"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["S","6'"],
+        "link":"#"
+  },
+  {
+        "_id": 4,
+        "img_name":"mens3.jpg",
+        "title":"Stone-Wash Jeans",
+        "price":79,
+        "features":["Straight leg"],
+        "care":["Demin", "Machine wash"],
+        "size_fit":["M","5'10"],
+        "link":"#"
+  },
+  {
+        "_id": 5,
+        "img_name":"womens1.jpg",
+        "title":"White Sneakers",
+        "price":99,
+        "features":["Platform Sole", "Memory Foam Insole"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["7 1/2", "5'9"],
+        "link":"#"
+  },
+  {
+        "_id": 6,
+        "img_name":"reverieImgButtonDown.jpg",
+        "title":"Brown Button-down",
+        "price": 28,
+        "features":["Light Brown Embroidered Detail", "Black Buttons"],
+        "care":["Rayon, Cotton", "Machine wash"],
+        "size_fit":["S", "5'9"],
+        "link":"/shop"
+  }
+]
+
 // womens
 app.get("/api/womens", (req,res)=>{
   res.send(womens);
@@ -335,6 +398,18 @@ app.get("/api/decor/:id", (req,res)=>{
   //if we have a one line arrow function, we dont need curly braces
   // === means same in type and value
   const item = decor.find((item)=>item._id===parseInt(req.params.id));
+  res.send(item);
+});
+
+// quickshop
+app.get("/api/quickShop", (req,res)=>{
+  res.send(quickShop);
+});
+
+app.get("/api/quickShop/:id", (req,res)=>{
+  //if we have a one line arrow function, we dont need curly braces
+  // === means same in type and value
+  const item = quickShop.find((item)=>item._id===parseInt(req.params.id));
   res.send(item);
 });
 
