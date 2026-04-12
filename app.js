@@ -43,7 +43,8 @@ app.use(express.static("public"));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, "./public/images/");
+      const category = req.body.category; 
+      cb(null, `./public/images/${category}`);
     },
     filename: (req, file, cb) => {
       cb(null, file.originalname);
@@ -414,7 +415,7 @@ app.post("/api/items", upload.single("img"), (req,res)=>{
     title:req.body.title,
     price:req.body.price,
     features:req.body.features ? req.body.features.split(",") : [],
-    care:req.body.care,
+    care:req.body.care ? req.body.care.split(",") : [],
     size_fit:req.body.size_fit ? req.body.size_fit.split(",") : [],
     category:req.body.category
   }
