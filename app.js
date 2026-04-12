@@ -399,7 +399,7 @@ app.get("/api/quickShop/:id", (req,res)=>{
 });
 
 // POST
-app.post("api/items", upload.single("img"), (req,res)=>{
+app.post("/api/items", upload.single("img"), (req,res)=>{
   const result = validateItem(req.body);
 
   if(result.error) {
@@ -410,7 +410,7 @@ app.post("api/items", upload.single("img"), (req,res)=>{
   console.log("Passed Validation!!");
 
   const item = {
-    _id:items.Length+1,
+    _id:items.length+1,
     title:req.body.title,
     price:req.body.price,
     features:req.body.features,
