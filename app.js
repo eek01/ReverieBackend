@@ -420,7 +420,7 @@ app.post("/api/items", upload.single("img"), (req,res)=>{
   }
   //adding img
   if(req.file){
-    item.img_name = "images/"+req.file.filename;
+    item.img_name = req.file.filename;
   }
 
   //adding to array
