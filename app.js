@@ -634,7 +634,7 @@ app.get("/api/items", (req,res)=>{
 app.get("/api/items/:id", (req,res)=>{
   //if we have a one line arrow function, we dont need curly braces
   // === means same in type and value
-  const item = items.find((item)=>item._id===parseInt(req.params.id));
+  const items = items.find((item)=>item._id===parseInt(req.params.id));
   res.send(items);
 });
 
