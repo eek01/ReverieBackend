@@ -40,7 +40,6 @@ const Joi = require("joi");
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
-app.use("/uploads", express.static("uploads"));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -52,10 +51,6 @@ const storage = multer.diskStorage({
   });
 
 const upload = multer({ storage: storage });
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
 
 let items = [
   {
@@ -425,7 +420,8 @@ app.post("api/items", upload.single("img"), (req,res)=>{
   }
   //adding img
   if(req.file){
-    item.img_name = "images/"+req.file.filename;
+    // item.img_name = "images/"+req.file.filename;
+    item.img_name = req.file.filename;
   }
 
   //adding to array
