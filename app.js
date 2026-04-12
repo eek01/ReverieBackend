@@ -413,15 +413,14 @@ app.post("/api/items", upload.single("img"), (req,res)=>{
     _id:items.length+1,
     title:req.body.title,
     price:req.body.price,
-    features:req.body.features,
+    features:req.body.features ? req.body.features.split(",") : [],
     care:req.body.features,
-    size_fit:req.body.size_fit,
+    size_fit:req.body.size_fit ? req.body.size_fit.split(",") : [],
     category:req.body.category
   }
   //adding img
   if(req.file){
-    // item.img_name = "images/"+req.file.filename;
-    item.img_name = req.file.filename;
+    item.img_name = "images/"+req.file.filename;
   }
 
   //adding to array
