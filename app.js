@@ -634,9 +634,15 @@ app.get("/api/items", (req,res)=>{
 app.get("/api/items/:id", (req,res)=>{
   //if we have a one line arrow function, we dont need curly braces
   // === means same in type and value
-  const items = items.find((item)=>item._id===parseInt(req.params.id));
-  res.send(items);
+  const itemId = items.find((item)=>item._id===parseInt(req.params.id));
+  res.send(itemId);
 });
+// app.get("/api/womens/:id", (req,res)=>{
+//   //if we have a one line arrow function, we dont need curly braces
+//   // === means same in type and value
+//   const women = womens.find((item)=>item._id===parseInt(req.params.id));
+//   res.send(women);
+// });
 
 // POST
 app.post("api/items", upload.single("img"), (req,res)=>{
