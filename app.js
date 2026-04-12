@@ -37,9 +37,10 @@ const multer = require("multer");
 const app = express();
 //npm i joi
 const Joi = require("joi");
-app.use(express.static("public"));
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -52,10 +53,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
 let items = [
   {
         "_id": 9,
-        "img_name":"womens/womens7.jpg",
+        "img_name":"womens7.jpg",
         "title":"Open Back Button-Down",
         "price":17,
         "features":["Open Back","Tie Back"],
@@ -65,7 +70,7 @@ let items = [
     },
     {
         "_id": 8,
-        "img_name":"womens/womens6.jpg",
+        "img_name":"womens6.jpg",
         "title":"Chunky Knit Sweater",
         "price":60,
         "features":["Turtle Neck", "Over Sized Fit"],
@@ -75,7 +80,7 @@ let items = [
     },
     {
         "_id": 7,
-        "img_name":"womens/womens5.jpg",
+        "img_name":"womens5.jpg",
         "title":"Wrap Dress",
         "price":29,
         "features":["Rouched Waist","V-Neck Neckline"],
@@ -85,7 +90,7 @@ let items = [
     },
     {
         "_id": 6,
-        "img_name":"womens/womens4.jpg",
+        "img_name":"womens4.jpg",
         "title":"Khaki Straight Leg Pants",
         "price":59,
         "features":["High Waisted"],
@@ -95,7 +100,7 @@ let items = [
     },
     {
         "_id": 5,
-        "img_name":"womens/womens3.jpg",
+        "img_name":"womens3.jpg",
         "title":"Metallic Lace Dress",
         "price":16,
         "features":["Ruffled Lace Collar", "Black Lining"],
@@ -105,7 +110,7 @@ let items = [
     },
     {
         "_id": 4,
-        "img_name":"womens/womens2.jpg",
+        "img_name":"womens2.jpg",
         "title":"White Heeled Sandals",
         "price":49,
         "features":["Adjustable Ankle Strap"],
@@ -115,7 +120,7 @@ let items = [
     },
     {
         "_id": 3,
-        "img_name":"womens/womens1.jpg",
+        "img_name":"womens1.jpg",
         "title":"White Sneakers",
         "price":99,
         "features":["Platform Sole", "Memory Foam Insole"],
@@ -125,7 +130,7 @@ let items = [
     },
     {
         "_id":2,
-        "img_name":"womens/reveriePuffer.png",
+        "img_name":"reveriePuffer.png",
         "title":"Pink Puffer",
         "price": 19,
         "features":["Zipper"],
@@ -135,7 +140,7 @@ let items = [
     },
     {
         "_id": 1,
-        "img_name":"womens/reverieImgButtonDown.jpg",
+        "img_name":"reverieImgButtonDown.jpg",
         "title":"Brown Button-down",
         "price": 28,
         "features":["Light Brown Embroidered Detail", "Black Buttons"],
@@ -145,7 +150,7 @@ let items = [
     },
     {
         "_id": 18,
-        "img_name":"mens/mens1.jpg",
+        "img_name":"mens1.jpg",
         "title":"Navy Windbreaker",
         "price":55,
         "features":["Quarter Zip","Quarter Buttons"],
@@ -155,7 +160,7 @@ let items = [
     },
     {
         "_id": 17,
-        "img_name":"mens/mens2.jpg",
+        "img_name":"mens2.jpg",
         "title":"White T-Shirt",
         "price":15,
         "features":["Turtle Neck", "Over Sized Fit"],
@@ -165,7 +170,7 @@ let items = [
     },
     {
         "_id": 16,
-        "img_name":"mens/mens3.jpg",
+        "img_name":"mens3.jpg",
         "title":"Stone-Wash Jeans",
         "price":79,
         "features":["Straight leg"],
@@ -175,7 +180,7 @@ let items = [
     },
     {
         "_id": 15,
-        "img_name":"mens/mens4.jpg",
+        "img_name":"mens4.jpg",
         "title":"Denim Jacket",
         "price":58,
         "features":["Button-Down"],
@@ -185,7 +190,7 @@ let items = [
     },
     {
         "_id": 14,
-        "img_name":"mens/mens5.jpg",
+        "img_name":"mens5.jpg",
         "title":"Short Sleeved Button Down",
         "price":28,
         "features":["Chest Pockets", "Button Down"],
@@ -195,7 +200,7 @@ let items = [
     },
     {
         "_id": 13,
-        "img_name":"mens/mens6.jpg",
+        "img_name":"mens6.jpg",
         "title":"Gray Striped Blazer Jacket",
         "price":39,
         "features":["Decorative Front Buttons", "Front Pocket"],
@@ -205,7 +210,7 @@ let items = [
     },
     {
         "_id": 12,
-        "img_name":"mens/mens7.jpg",
+        "img_name":"mens7.jpg",
         "title":"Puffer Jacket",
         "price":60,
         "features":["Faux Fur Collar", "Zip-up Closure"],
@@ -215,7 +220,7 @@ let items = [
     },
     {
         "_id":11,
-        "img_name":"mens/mens8.jpg",
+        "img_name":"mens8.jpg",
         "title":"Burnt Orange T-Shirt",
         "price": 20,
         "features":["Over Sized Fit", "Raw Hem"],
@@ -225,7 +230,7 @@ let items = [
     },
     {
         "_id": 10,
-        "img_name":"mens/mens9.jpg",
+        "img_name":"mens9.jpg",
         "title":"Sweater",
         "price": 39,
         "features":["V-Neck collar"],
@@ -235,7 +240,7 @@ let items = [
     },
     {
         "_id": 19,
-        "img_name":"decor/home9.jpg",
+        "img_name":"home9.jpg",
         "title":"Coffee Table Assortment",
         "price":79,
         "features":["Three Piece"],
@@ -243,7 +248,7 @@ let items = [
     },
     {
         "_id": 20,
-        "img_name":"decor/home8.jpg",
+        "img_name":"home8.jpg",
         "title":"Wired Light",
         "price":17,
         "features":["Wall Plug In", "Hanger"],
@@ -251,7 +256,7 @@ let items = [
     },
     {
         "_id": 21,
-        "img_name":"decor/home7.jpg",
+        "img_name":"home7.jpg",
         "title":"Woven Table Map",
         "price":13,
         "features":["Multicolored", "24in. Diameter"],
@@ -259,7 +264,7 @@ let items = [
     },
     {
         "_id": 22,
-        "img_name":"decor/home6.jpg",
+        "img_name":"home6.jpg",
         "title":"Square Wall Shelves",
         "price":40,
         "features":["Four Piece"],
@@ -267,7 +272,7 @@ let items = [
     },
     {
         "_id": 23,
-        "img_name":"decor/home5.jpg",
+        "img_name":"home5.jpg",
         "title":"Woven Chevron Hamper",
         "price":24,
         "features":["Side Handles"],
@@ -275,7 +280,7 @@ let items = [
     },
     {
         "_id": 24,
-        "img_name":"decor/home4.jpg",
+        "img_name":"home4.jpg",
         "title":"Decorative Mosaic tea Kettle",
         "price":29,
         "features":["Mosaic Inpired Pattern", "Removeable Lid"],
@@ -283,7 +288,7 @@ let items = [
     },
     {
         "_id": 25,
-        "img_name":"decor/home3.jpg",
+        "img_name":"home3.jpg",
         "title":"Wide Pot",
         "price":16,
         "features":["Saucer Dish Included", "10in. Long"],
@@ -291,7 +296,7 @@ let items = [
     },
     {
         "_id":26,
-        "img_name":"decor/home2.jpg",
+        "img_name":"home2.jpg",
         "title":"Textured Pot",
         "price": 35,
         "features":["Leaf-inspired texture", "25in. Diameter"],
@@ -299,265 +304,13 @@ let items = [
     },
     {
         "_id": 27,
-        "img_name":"decor/home1.jpg",
+        "img_name":"home1.jpg",
         "title":"Ceramic Pitcher Vase",
         "price": 28,
         "features":["Floral Painting"],
         "category":"decor"
     }
 ]
-
-// let womens = [
-//     {
-//         "_id": 9,
-//         "img_name":"womens7.jpg",
-//         "title":"Open Back Button-Down",
-//         "price":17,
-//         "features":["Open Back","Tie Back"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["S","6'"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 8,
-//         "img_name":"womens6.jpg",
-//         "title":"Chunky Knit Sweater",
-//         "price":60,
-//         "features":["Turtle Neck", "Over Sized Fit"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["S","5'4"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 7,
-//         "img_name":"womens5.jpg",
-//         "title":"Wrap Dress",
-//         "price":29,
-//         "features":["Rouched Waist","V-Neck Neckline"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["XS","5'10"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 6,
-//         "img_name":"womens4.jpg",
-//         "title":"Khaki Straight Leg Pants",
-//         "price":59,
-//         "features":["High Waisted"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["S","5'6"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 5,
-//         "img_name":"womens3.jpg",
-//         "title":"Metallic Lace Dress",
-//         "price":16,
-//         "features":["Ruffled Lace Collar", "Black Lining"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["XS","5'10"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 4,
-//         "img_name":"womens2.jpg",
-//         "title":"White Heeled Sandals",
-//         "price":49,
-//         "features":["Adjustable Ankle Strap"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["9","5'7"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 3,
-//         "img_name":"womens1.jpg",
-//         "title":"White Sneakers",
-//         "price":99,
-//         "features":["Platform Sole", "Memory Foam Insole"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["7 1/2", "5'9"],
-//         "link":"#"
-//     },
-//     {
-//         "_id":2,
-//         "img_name":"reveriePuffer.png",
-//         "title":"Pink Puffer",
-//         "price": 19,
-//         "features":["Zipper"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["S","5'7"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 1,
-//         "img_name":"reverieImgButtonDown.jpg",
-//         "title":"Brown Button-down",
-//         "price": 28,
-//         "features":["Light Brown Embroidered Detail", "Black Buttons"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["S", "5'9"],
-//         "link":"/shop"
-//     }
-// ]
-
-// let mens = [
-//         {
-//         "_id": 18,
-//         "img_name":"mens1.jpg",
-//         "title":"Navy Windbreaker",
-//         "price":55,
-//         "features":["Quarter Zip","Quarter Buttons"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["S","6'"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 17,
-//         "img_name":"mens2.jpg",
-//         "title":"White T-Shirt",
-//         "price":15,
-//         "features":["Turtle Neck", "Over Sized Fit"],
-//         "care":["Cotton", "Machine wash"],
-//         "size_fit":["S","5'8"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 16,
-//         "img_name":"mens3.jpg",
-//         "title":"Stone-Wash Jeans",
-//         "price":79,
-//         "features":["Straight leg"],
-//         "care":["Demin", "Machine wash"],
-//         "size_fit":["M","5'10"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 15,
-//         "img_name":"mens4.jpg",
-//         "title":"Denim Jacket",
-//         "price":58,
-//         "features":["Button-Down"],
-//         "care":["Denim", "Machine wash"],
-//         "size_fit":["M","5'9"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 14,
-//         "img_name":"mens5.jpg",
-//         "title":"Short Sleeved Button Down",
-//         "price":28,
-//         "features":["Chest Pockets", "Button Down"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["M","5'10"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 13,
-//         "img_name":"mens6.jpg",
-//         "title":"Gray Striped Blazer Jacket",
-//         "price":39,
-//         "features":["Decorative Front Buttons", "Front Pocket"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["M","5'7"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 12,
-//         "img_name":"mens7.jpg",
-//         "title":"Puffer Jacket",
-//         "price":60,
-//         "features":["Faux Fur Collar", "Zip-up Closure"],
-//         "care":["Nylon", "Machine wash"],
-//         "size_fit":["M", "5'9"],
-//         "link":"#"
-//     },
-//     {
-//         "_id":11,
-//         "img_name":"mens8.jpg",
-//         "title":"Burnt Orange T-Shirt",
-//         "price": 20,
-//         "features":["Over Sized Fit", "Raw Hem"],
-//         "care":["Rayon, Cotton", "Machine wash"],
-//         "size_fit":["S","5'7"],
-//         "link":"#"
-//     },
-//     {
-//         "_id": 10,
-//         "img_name":"mens9.jpg",
-//         "title":"Sweater",
-//         "price": 39,
-//         "features":["V-Neck collar"],
-//         "care":["Cashmere", "Hand-wash only"],
-//         "size_fit":["M", "5'9"],
-//         "link":"/shop"
-//     }
-// ]
-
-// let decor = [
-//         {
-//         "_id": 19,
-//         "img_name":"home9.jpg",
-//         "title":"Coffee Table Assortment",
-//         "price":79,
-//         "features":["Three Piece"]
-//     },
-//     {
-//         "_id": 20,
-//         "img_name":"home8.jpg",
-//         "title":"Wired Light",
-//         "price":17,
-//         "features":["Wall Plug In", "Hanger"]
-//     },
-//     {
-//         "_id": 21,
-//         "img_name":"home7.jpg",
-//         "title":"Woven Table Map",
-//         "price":13,
-//         "features":["Multicolored", "24in. Diameter"]
-//     },
-//     {
-//         "_id": 22,
-//         "img_name":"home6.jpg",
-//         "title":"Square Wall Shelves",
-//         "price":40,
-//         "features":["Four Piece"]
-//     },
-//     {
-//         "_id": 23,
-//         "img_name":"home5.jpg",
-//         "title":"Woven Chevron Hamper",
-//         "price":24,
-//         "features":["Side Handles"]
-//     },
-//     {
-//         "_id": 24,
-//         "img_name":"home4.jpg",
-//         "title":"Decorative Mosaic tea Kettle",
-//         "price":29,
-//         "features":["Mosaic Inpired Pattern", "Removeable Lid"]
-//     },
-//     {
-//         "_id": 25,
-//         "img_name":"home3.jpg",
-//         "title":"Wide Pot",
-//         "price":16,
-//         "features":["Saucer Dish Included", "10in. Long"]
-//     },
-//     {
-//         "_id":26,
-//         "img_name":"home2.jpg",
-//         "title":"Textured Pot",
-//         "price": 35,
-//         "features":["Leaf-inspired texture", "25in. Diameter"]
-//     },
-//     {
-//         "_id": 27,
-//         "img_name":"home1.jpg",
-//         "title":"Ceramic Pitcher Vase",
-//         "price": 28,
-//         "features":["Floral Painting"]
-//     }
-// ]
 
 let quickShop = [
   [
@@ -637,81 +390,6 @@ app.get("/api/items/:id", (req,res)=>{
   const itemId = items.find((item)=>item._id===parseInt(req.params.id));
   res.send(itemId);
 });
-// app.get("/api/womens/:id", (req,res)=>{
-//   //if we have a one line arrow function, we dont need curly braces
-//   // === means same in type and value
-//   const women = womens.find((item)=>item._id===parseInt(req.params.id));
-//   res.send(women);
-// });
-
-// POST
-app.post("api/items", upload.single("img"), (req,res)=>{
-  console.log("In post request");
-  console.log(req.body);
-
-  const results = validateItem(req.body);
-  if(result.error) {
-    console.log("Error in validation");
-    response.status(400).send(result.error.details[0].message);
-    return;
-  }
-  console.log("Passed Validation!!");
-
-  const item = {
-    _id:items.Length+1,
-    title:req.body.title,
-    price:req.body.price,
-    features:req.body.features,
-    care:req.body.features,
-    size_fit:req.body.size_fit
-  }
-  //adding img
-  if(req.file){
-    item.img_name = req.file.filename;
-  }
-
-  //adding to array
-  womens.push(item);
-  // console.log(womens);
-  response.status(200).send(item);
-});
-
-
-// womens
-// app.get("/api/womens", (req,res)=>{
-//   res.send(womens);
-// });
-
-// app.get("/api/womens/:id", (req,res)=>{
-//   //if we have a one line arrow function, we dont need curly braces
-//   // === means same in type and value
-//   const women = womens.find((item)=>item._id===parseInt(req.params.id));
-//   res.send(women);
-// });
-
-// mens
-// app.get("/api/mens", (req,res)=>{
-//   res.send(mens);
-// });
-
-// app.get("/api/mens/:id", (req,res)=>{
-//   //if we have a one line arrow function, we dont need curly braces
-//   // === means same in type and value
-//   const men = mens.find((item)=>item._id===parseInt(req.params.id));
-//   res.send(men);
-// });
-
-// decor
-// app.get("/api/decor", (req,res)=>{
-//   res.send(decor);
-// });
-
-// app.get("/api/decor/:id", (req,res)=>{
-//   //if we have a one line arrow function, we dont need curly braces
-//   // === means same in type and value
-//   const item = decor.find((item)=>item._id===parseInt(req.params.id));
-//   res.send(item);
-// });
 
 // quickshop
 app.get("/api/quickShop", (req,res)=>{
@@ -725,47 +403,46 @@ app.get("/api/quickShop/:id", (req,res)=>{
   res.send(item);
 });
 
-// // POST
-// app.post("api/womens", upload.single("img"), (req,res)=>{
-//   console.log("In post request");
-//   console.log(req.body);
+// POST
+app.post("api/items", upload.single("img"), (req,res)=>{
+  const result = validateItem(req.body);
 
-//   const results = validateItem(req.body);
-//   if(result.error) {
-//     console.log("Error in validation");
-//     response.status(400).send(result.error.details[0].message);
-//     return;
-//   }
-//   console.log("Passed Validation!!");
+  if(result.error) {
+    console.log("Error in validation");
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+  console.log("Passed Validation!!");
 
-//   const item = {
-//     _id:womens.Length+1,
-//     title:req.body.title,
-//     price:req.body.price,
-//     features:req.body.features,
-//     care:req.body.features,
-//     size_fit:req.body.size_fit
-//   }
-//   //adding img
-//   if(req.file){
-//     item.img_name = req.file.filename;
-//   }
+  const item = {
+    _id:items.Length+1,
+    title:req.body.title,
+    price:req.body.price,
+    features:req.body.features,
+    care:req.body.features,
+    size_fit:req.body.size_fit,
+    category:req.body.category
+  }
+  //adding img
+  if(req.file){
+    item.img_name = "images/"+req.file.filename;
+  }
 
-//   //adding to array
-//   womens.push(item);
-//   // console.log(womens);
-//   response.status(200).send(item);
-// });
+  //adding to array
+  items.push(item);
+  res.status(200).send(item);
+});
 
 const validateItem = (item) => {
   const schema = Joi.object({
     // for next week
     _id:Joi.allow(""),
-    title:Joi.string().min(3).required,
+    title:Joi.string().min(3).required(),
     price:Joi.number().required(),
     features:Joi.string().required(),
     care:Joi.string(),
-    size_fit:Joi.string()
+    size_fit:Joi.string(),
+    category:Joi.string().min(4).required()
   });
   return schema.validate(item);
 };
