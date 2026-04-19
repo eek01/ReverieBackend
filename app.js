@@ -413,7 +413,7 @@ app.post("/api/items", upload.single("img"), (req,res)=>{
 });
 
 //EDIT CODE
-app.put("api/items/:id", upload.single("img"), (req,res)=>{
+app.put("/api/items/:id", upload.single("img"), (req,res)=>{
   console.log("In put");
 
   const item = items.find((i)=>i._id===parseInt(req.params.id));
@@ -446,7 +446,7 @@ app.put("api/items/:id", upload.single("img"), (req,res)=>{
 });
 
 app.delete("/api/items/:id", (req,res)=>{
-  const item = item.find((i)=>i._id===parseInt(req.params.id));
+  const item = items.find((i)=>i._id===parseInt(req.params.id));
 
   if(!item){
     res.status(404).send("The item you wanted to delete is not available");
