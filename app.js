@@ -1,32 +1,5 @@
-// const mongoose = require("mongoose");
-
-// //testdb is name of database, it will automatically make it
-// mongoose
-//   .connect("mongodb+srv://eek1_db_user:Fashiondiva0@reverie.0znkakq.mongodb.net/?appName=Reverie")
-//   .then(() => console.log("Connected to mongodb..."))
-//   .catch((err) => console.error("could not connect ot mongodb...", err));
-
-// const schema = new mongoose.Schema({
-//   name: String,
-// });
-
-// async function createMessage() {
-//   const result = await message.save();
-//   console.log(result);
-// }
-
-// //this creates a Message class in our app
-// const Message = mongoose.model("Message", schema);
-// const message = new Message({
-//   name: "Hello World",
-// });
-
-// createMessage();
-
-
-
-//brewery api!!!
-
+require("dotenv").config();
+const mongoose = require("mongoose");
 //READing data from json file!!
 //npm i express
 const express = require("express");
@@ -52,6 +25,15 @@ const storage = multer.diskStorage({
   });
 
 const upload = multer({ storage: storage });
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("connected to mongodb");
+  })
+  .catch((error) => {
+    console.log("couldn't connect to mongodb", error);
+  });
 
 let items = [
   {
@@ -409,6 +391,7 @@ app.post("/api/items", upload.single("img"), (req,res)=>{
     return;
   }
   console.log("Passed Validation!!");
+  console.log(req.body);
 
   const item = {
     _id:items.length+1,
@@ -426,6 +409,39 @@ app.post("/api/items", upload.single("img"), (req,res)=>{
 
   //adding to array
   items.push(item);
+  res.status(200).send(item);
+});
+
+//EDIT CODE
+app.put("api/items/:id", upload.single("img"), (req,res)=>{
+  console.log("In put");
+
+  const item = items.find((i)=>i._id===parseInt(req.params.id));
+
+  if(!item){
+    res.status(404).send("The item you wanted to modify is not available");
+    return;
+  }
+
+  const result = validateItem(req.body);
+
+  if(result.error){
+    console.log("Error in validation");
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+
+  item.title = req.body.title;
+  item.price = req.body.price;
+  item.features = req.body.features;
+  item.care = req.body.care ? req.body.care.split(",") : [];
+  item.size_fit = req.body.size_fit ? req.body.size_fit.split(",") : [];
+  item.category = req.body.category;
+
+  if(req.file){
+    item.img_name = req.file.filename;
+  }
+
   res.status(200).send(item);
 });
 
