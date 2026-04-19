@@ -414,7 +414,7 @@ app.post("/api/items", upload.single("img"), (req,res)=>{
     _id:items.length+1,
     title:req.body.title,
     price:req.body.price,
-    features:req.body.features ? req.body.features.split(",") : [],
+    features:req.body.features,
     care:req.body.care ? req.body.care.split(",") : [],
     size_fit:req.body.size_fit ? req.body.size_fit.split(",") : [],
     category:req.body.category
