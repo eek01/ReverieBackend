@@ -445,6 +445,19 @@ app.put("api/items/:id", upload.single("img"), (req,res)=>{
   res.status(200).send(item);
 });
 
+app.delete("/api/items/:id", (req,res)=>{
+  const item = item.find((i)=>i._id===parseInt(req.params.id));
+
+  if(!item){
+    res.status(404).send("The item you wanted to delete is not available");
+    return;
+  }
+
+  const index = items.indexOf(item);
+  items.splice(index,1);
+  res.status(200).send(item);
+});
+
 const validateItem = (item) => {
   const schema = Joi.object({
     // for next week
