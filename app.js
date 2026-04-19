@@ -435,10 +435,10 @@ const validateItem = (item) => {
     _id:Joi.allow(""),
     title:Joi.string().min(3).required(),
     price:Joi.number().required(),
-    features:Joi.string().required(),
+    features: Joi.array().items(Joi.string()).required(),
     care:Joi.string(),
     size_fit:Joi.string(),
-    category:Joi.string().min(4).required()
+    category:Joi.string().required()
   });
   return schema.validate(item);
 };
