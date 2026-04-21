@@ -155,10 +155,15 @@ app.post("/api/items", upload.single("img"),async(req,res)=>{
   console.log("Passed Validation!!");
   console.log(req.body);
 
+  let featuresArray = req.body.features;
+  if (typeof featuresArray === "string") {
+      featuresArray = [featuresArray];
+  }
+
   const item = new Item({
     title:req.body.title,
     price:req.body.price,
-    features:req.body.features,
+    features:featuresArray,
     care:req.body.care ? req.body.care.split(",") : [],
     size_fit:req.body.size_fit ? req.body.size_fit.split(",") : [],
     category:req.body.category
@@ -185,10 +190,16 @@ app.put("/api/items/:id", upload.single("img"), async(req,res)=>{
     return;
   }
 
+  let featuresArray = req.body.features;
+
+  if (typeof featuresArray === "string") {
+      featuresArray = [featuresArray];
+  }
+
   const fieldsToUpdate = {
     title:req.body.title,
     price:req.body.price,
-    features: req.body.features?(Array.isArray(req.body.features)?req.body.features:[req.body.features]):[],
+    features: featuresArray,
     care:req.body.care ? req.body.care.split(",") : [],
     size_fit:req.body.size_fit ? req.body.size_fit.split(",") : [],
     category:req.body.category
@@ -224,7 +235,7 @@ const validateItem = (item) => {
     _id:Joi.allow(""),
     title:Joi.string().min(3).required(),
     price:Joi.number().required(),
-    features: Joi.array().items(Joi.string()).required(),
+    features: Joi.alternatives().try(Joi.array().items(Joi.string()), Joi.string()).required(),
     care:Joi.string(),
     size_fit:Joi.string(),
     category:Joi.string().required()
