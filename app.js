@@ -1,4 +1,5 @@
-// require("dotenv").config();
+require("dotenv").config();
+//npm i mongoose
 const mongoose = require("mongoose");
 //READing data from json file!!
 //npm i express
@@ -26,14 +27,44 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+
+
+//testdb is name of database, it will automatically make it
 mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log("connected to mongodb");
-  })
-  .catch((error) => {
-    console.log("couldn't connect to mongodb", error);
-  });
+  .connect("mongodb+srv://eek1_db_user:Fashiondiva0@reverie.0znkakq.mongodb.net/?appName=Reverie")
+  .then(() => console.log("Connected to mongodb..."))
+  .catch((err) => console.error("could not connect ot mongodb...", err));
+
+const schema = new mongoose.Schema({
+  name: String,
+});
+
+async function createMessage() {
+  const result = await message.save();
+  console.log(result);
+}
+
+//this creates a Message class in our app
+const Message = mongoose.model("Message", schema);
+const message = new Message({
+  name: "Hello World",
+});
+
+createMessage();
+
+
+
+
+
+//from portias github...stay w mine i think?
+// mongoose
+//   .connect(process.env.MONGODB_URI)
+//   .then(() => {
+//     console.log("connected to mongodb");
+//   })
+//   .catch((error) => {
+//     console.log("couldn't connect to mongodb", error);
+//   });
 
 let items = [
   {
