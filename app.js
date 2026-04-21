@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 //npm i mongoose
 const mongoose = require("mongoose");
 //READing data from json file!!
