@@ -41,7 +41,7 @@ mongoose
     img_name:String,
     title:String,
     price:Number,
-    featues:[String],
+    features:[String],
     care:[String],
     size_fit:[String],
     category:String
