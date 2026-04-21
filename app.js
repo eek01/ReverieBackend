@@ -199,7 +199,7 @@ app.put("/api/items/:id", upload.single("img"), async(req,res)=>{
   const fieldsToUpdate = {
     title:req.body.title,
     price:req.body.price,
-    features: featuresArray,
+    features: featuresArray || [],
     care:req.body.care ? req.body.care.split(",") : [],
     size_fit:req.body.size_fit ? req.body.size_fit.split(",") : [],
     category:req.body.category
