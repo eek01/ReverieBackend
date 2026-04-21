@@ -188,7 +188,7 @@ app.put("/api/items/:id", upload.single("img"), async(req,res)=>{
   const fieldsToUpdate = {
     title:req.body.title,
     price:req.body.price,
-    features: req.body.features,
+    features: req.body.features?(Array.isArray(req.body.features)?req.body.features:[req.body.features]):[],
     care:req.body.care ? req.body.care.split(",") : [],
     size_fit:req.body.size_fit ? req.body.size_fit.split(",") : [],
     category:req.body.category
