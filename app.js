@@ -209,7 +209,7 @@ app.put("/api/items/:id", upload.single("img"), async(req,res)=>{
     fieldsToUpdate.img_name = req.file.filename;
   }
 
-  const success = await Item.updateOneitem({_id:req.params.id}, fieldsToUpdate);
+  const success = await Item.updateOne({_id:req.params.id}, fieldsToUpdate);
 
   if(!success) {
     res.status(404).send("We couldn't find that item");
